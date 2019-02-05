@@ -1,5 +1,5 @@
 # Word Watch 👀
-
+Visit Deployed Site Here: https://tmaria17.github.io/word_watch/index.html
 > Seeing is believing...
 
 Today, your task is to bring Word Watch👀 to life! Find the API docs [here](https://github.com/turingschool-examples/word-watch-api). Essentially, you have two user stories:

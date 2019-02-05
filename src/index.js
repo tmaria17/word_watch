@@ -18,6 +18,6 @@ $( document ).ready(function() {
 
   function popWord(wordData){
     $("#pop-word").append(
-      `<h1>${wordData.key}</h1>`
+      `<h1>${Object.keys(wordData)}: ${Object.values(wordData)}</h1>`
     );
   }

@@ -12,6 +12,7 @@ $( document ).ready(function() {
         var wordData= result.word
         console.log(wordData);
         popWord(wordData);
+        breakWord();
       }
     });
   });
@@ -21,3 +22,19 @@ $( document ).ready(function() {
       `<h1>${Object.keys(wordData)}: ${Object.values(wordData)}</h1>`
     );
   }
+
+
+  function breakWord(){
+    var wordInput = document.getElementById("word-input").value
+    $('word-btn').on('click', function(){
+      $.ajax({
+      type: "POST",
+      url:`https://wordwatch-api.herokuapp.com/api/v1/words`,
+      data: { word: { value: wordInput } },
+      success: function(result) {
+        input = result
+        console.log(input);
+      }
+    })
+  })
+}

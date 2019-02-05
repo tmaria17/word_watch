@@ -1,10 +1,7 @@
 import $ from 'jquery'
-//
-// $(document).ready(() => {
-//   // have fun!
-// })
 
 $( document ).ready(function() {
+    breakWord();
     $.ajax({
       type: 'GET',
       url: `https://wordwatch-api.herokuapp.com/api/v1/top_word`,
@@ -12,7 +9,6 @@ $( document ).ready(function() {
         var wordData= result.word
         console.log(wordData);
         popWord(wordData);
-        breakWord();
       }
     });
   });
@@ -24,17 +20,22 @@ $( document ).ready(function() {
   }
 
 
-  function breakWord(){
-    var wordInput = document.getElementById("word-input").value
-    $('word-btn').on('click', function(){
-      $.ajax({
-      type: "POST",
-      url:`https://wordwatch-api.herokuapp.com/api/v1/words`,
-      data: { word: { value: wordInput } },
-      success: function(result) {
-        input = result
-        console.log(input);
-      }
-    })
+  function breakWord(words){
+  $('#word-btn').on('click', function(){
+    console.log("This click is clicking!");
+
+    var wordInput = document.getElementById("word-input").value;
+    wordInput.split(" ").forEach(function(element){
+    $.ajax({
+    type: "POST",
+    url:`https://wordwatch-api.herokuapp.com/api/v1/words`,
+    data: { 'word': { 'value': element } },
+    success: function(result) {
+      var input = result
+      console.log(input);
+    }
   })
+})
+
+});
 }

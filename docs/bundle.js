@@ -80,10 +80,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 
+//
+// $(document).ready(() => {
+//   // have fun!
+// })
 
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(() => {
-  // have fun!
-})
+__WEBPACK_IMPORTED_MODULE_0_jquery___default()( document ).ready(function() {
+    // breakWord();
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
+      type: 'GET',
+      url: `https://wordwatch-api.herokuapp.com/api/v1/top_word`,
+      success: function(result) {
+        var wordData= result.word
+        console.log(wordData);
+        popWord(wordData);
+      }
+    });
+  });
+
+  function popWord(wordData){
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default()("#pop-word").append(
+      `<h1>${Object.keys(wordData)}: ${Object.values(wordData)}</h1>`
+    );
+  }
+
+
+  // function breakWord(){
+  __WEBPACK_IMPORTED_MODULE_0_jquery___default()('word-btn').on('click', function(){
+    console.log("This click is clicking!");
+
+  //   var wordInput = document.getElementById("word-input").value;
+  //   $.ajax({
+  //   type: "POST",
+  //   url:`https://wordwatch-api.herokuapp.com/api/v1/words`,
+  //   data: { 'word': { 'value': wordInput } },
+  //   success: function(result) {
+  //     input = result
+  //     console.log(input);
+  //   }
+  // })
+});
+// }
 
 
 /***/ }),

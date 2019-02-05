@@ -32,6 +32,7 @@ $( document ).ready(function() {
     data: { 'word': { 'value': element } },
     success: function(result) {
       var input = result
+      alert(element);
       console.log(input);
     }
   })

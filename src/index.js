@@ -10,9 +10,14 @@ $( document ).ready(function() {
       url: `https://wordwatch-api.herokuapp.com/api/v1/top_word`,
       success: function(result) {
         var wordData= result.word
-        console.log(wordData)
+        console.log(wordData);
+        popWord(wordData);
       }
     });
   });
 
-  
+  function popWord(wordData){
+    $("#pop-word").append(
+      `<h1>${wordData.key}</h1>`
+    );
+  }

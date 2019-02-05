@@ -32,7 +32,7 @@ $( document ).ready(function() {
     data: { 'word': { 'value': element } },
     success: function(result) {
       var input = result
-      alert(element);
+      alert(element + ' added');
       console.log(input);
     }
   })
